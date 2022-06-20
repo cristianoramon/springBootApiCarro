@@ -68,7 +68,6 @@
 		</dependency>
 
 
-
 		<!-- Swagger -->
 		<dependency>
 			<groupId>io.springfox</groupId>
@@ -83,7 +82,7 @@
 			<scope>compile</scope>
 		</dependency>
 
-		<!-- Security -->
+		<!-- Security   -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>

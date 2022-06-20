@@ -1,5 +1,4 @@
 package com.carros.carros.api.exception;
-
 import io.swagger.models.Response;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpHeaders;
