@@ -22,11 +22,11 @@ public class FirebasesStoreService {
     @PostConstruct
     private void init() throws IOException{
         if (FirebaseApp.getApps().isEmpty()){
-            InputStream in = FirebasesStoreService.class.getResourceAsStream("/serviceKey.json");
+            InputStream in = FirebasesStoreService.class.getResourceAsStream("/serviceAccountKey.json");
             System.out.println(in);
             FirebaseOptions option = new FirebaseOptions.Builder()
                     .setCredentials(GoogleCredentials.fromStream(in))
-                    .setStorageBucket("")
+                    .setStorageBucket("flutter-carro-9c36d.appspot.com")
                     .setDatabaseUrl("")
                     .build();
             FirebaseApp.initializeApp(option);
