@@ -5,7 +5,6 @@ import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.storage.Acl;
 import com.google.cloud.storage.Blob;
 import com.google.cloud.storage.Bucket;
-import com.google.cloud.storage.Storage;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
 import com.google.firebase.cloud.StorageClient;
@@ -17,12 +16,12 @@ import java.io.InputStream;
 import java.util.Base64;
 
 @Service
-public class FirebasesStoreService {
+public class FirebaseStorageService {
 
     @PostConstruct
     private void init() throws IOException{
         if (FirebaseApp.getApps().isEmpty()){
-            InputStream in = FirebasesStoreService.class.getResourceAsStream("/serviceAccountKey.json");
+            InputStream in = FirebaseStorageService.class.getResourceAsStream("/serviceAccountKey.json");
             System.out.println(in);
             FirebaseOptions option = new FirebaseOptions.Builder()
                     .setCredentials(GoogleCredentials.fromStream(in))

@@ -4,7 +4,7 @@ import com.carros.carros.domain.dto.CarroDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
-
+import com.carros.carros.api.exception.ObjectNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -57,6 +57,12 @@ public class CarroService {
         return  CarroDTO.create(c);
     }
 
+
+    public CarroDTO insert(Carro carro) {
+        Assert.isNull(carro.getId(),"Não foi possível inserir o registro");
+
+        return CarroDTO.create(rep.save(carro));
+    }
     public Carro update(Carro carro, Long id) {
         Assert.notNull(id,"Não foi possível atualizar");
         Optional<Carro> optional = rep.findById(id);
@@ -72,6 +78,13 @@ public class CarroService {
         }
 
     }
+
+    public CarroDTO getCarroById(Long id) {
+        Optional<Carro> carro = rep.findById(id);
+        return carro.map(CarroDTO::create).orElseThrow(() -> new ObjectNotFoundException("Carro não encontrado"));
+    }
+
+
 
     public void delete(Long id) {
 

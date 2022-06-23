@@ -29,6 +29,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
         // api/authenticate
         setFilterProcessesUrl(AUTH_URL);
+        setFilterProcessesUrl(AUTH_URL);
     }
 
     @Override
