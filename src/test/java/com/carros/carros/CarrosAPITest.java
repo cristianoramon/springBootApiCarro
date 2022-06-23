@@ -73,7 +73,7 @@ public class CarrosAPITest extends BaseAPITest {
     public void testListaPorTipo() {
 
         assertEquals(10, getCarros("/api/v1/carros/tipo/classicos").getBody().size());
-        assertEquals(10, getCarros("/api/v1/carros/tipo/esportivos").getBody().size());
+        assertEquals(11, getCarros("/api/v1/carros/tipo/esportivos").getBody().size());
         assertEquals(10, getCarros("/api/v1/carros/tipo/luxo").getBody().size());
 
         assertEquals(HttpStatus.NO_CONTENT, getCarros("/api/v1/carros/tipo/xxx").getStatusCode());

@@ -40,14 +40,14 @@ public class TokenJwtTest {
 
         // Valida login
         String login = JwtUtil.getLogin(jwtToken);
-        assertEquals("admin",login);
+        assertEquals("user",login);
 
         // Valida roles
         List<GrantedAuthority> roles = JwtUtil.getRoles(jwtToken);
         assertNotNull(roles);
         System.out.println(roles);
         String role = roles.get(0).getAuthority();
-        assertEquals(role,"ROLE_ADMIN");
+        assertEquals(role,"ROLE_USER");
     }
 
 }
